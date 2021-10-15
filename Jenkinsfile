@@ -27,12 +27,11 @@ pipeline {
             sh 'docker push ketuvasuops/vkopsrepo:latest'
         }
     }
-    
-    
-      post {
-        always {
-            sh 'docker logout'
-        }
-      }
   }
+    
+  post {
+     always {
+         sh 'docker logout'
+         }
+      }
 }
