@@ -7,6 +7,11 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials ('vasu_docker')
   }
   stages {
+    stage ('Git checkout') {
+      steps{
+        sh "git clone https://github.com/vasukethu/Dockerpush.git"
+      }
+    }
     stage ('Build') {
         steps {
             sh 'docker build -t ketuvasuops/vkopsrepo:latest .'
